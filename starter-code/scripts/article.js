@@ -33,6 +33,7 @@ Article.prototype.toHtml = function() {
 // REVIEW: This function will take the rawData, however it is provided,
 // and use it to instantiate all the articles. This code is moved from elsewhere, and
 // encapsulated in a simply-named function for clarity.
+
 Article.loadAll = function(rawData) {
   rawData.sort(function(a,b) {
     return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
@@ -50,7 +51,8 @@ Article.fetchAll = function() {
     // When rawData is already in localStorage,
     // we can load it with the .loadAll function above,
     // and then render the index page (using the proper method on the articleView object).
-    Article.loadAll(); //TODO: What do we pass in to loadAll()?
+    Article.loadAll(rawData); //TODO: What do we pass in to loadAll()?
+
     //TODO: What method do we call to render the index page?
   } else {
     // TODO: When we don't already have the rawData,
